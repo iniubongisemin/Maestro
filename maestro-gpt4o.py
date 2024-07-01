@@ -29,7 +29,8 @@ openai_client = OpenAI()
 ORCHESTRATOR_MODEL = "gpt-4o"
 # SUB_AGENT_MODEL = "gpt-4o"
 # SUB_AGENT_MODEL = "gpt-4o"
-SUB_AGENT_MODEL = "ollama/deepseek-coder-v2"
+# SUB_AGENT_MODEL = "ollama/deepseek-coder-v2"
+SUB_AGENT_MODEL = "gpt-4o"
 
 # Available Claude models for Anthropic API
 # REFINER_MODEL = "claude-3-opus-20240229"
@@ -233,7 +234,7 @@ def create_folder_structure(project_name, folder_structure, code_blocks):
         return
 
     # create_folders_and_files(project_name, folder_structure, code_blocks)
-    create_folder_structure(project_name, folder_structure, code_blocks)
+    # create_folder_structure(project_name, folder_structure, code_blocks)
 
 def create_folders_and_files(current_path, structure, code_blocks):
     for key, value in structure.items():
@@ -257,7 +258,7 @@ def create_folders_and_files(current_path, structure, code_blocks):
             else:
                 console.print(Panel(f"Code content not found for file: [bold]{key}[/bold]", title="[bold yellow]Missing Code Content[/bold yellow]", title_align="left", border_style="yellow"))
 
-    create_folders_and_files(code_blocks)
+    # create_folders_and_files(code_blocks)
 
 def read_file(file_path):
     with open(file_path, 'r') as file:
