@@ -6,8 +6,8 @@ from datetime import datetime
 import json
 from litellm import completion
 from openai import OpenAI
-import anthropic
-from anthropic import Anthropic
+# import anthropic
+# from anthropic import Anthropic
 from tavily import TavilyClient
 from dotenv import load_dotenv
 load_dotenv()
@@ -16,8 +16,8 @@ load_dotenv()
 openai_client = OpenAI(api_key="YOUR API KEY")
 # openai_client = OpenAI(api_key="OPENAI_API_KEY")
 # anthropic_client = Anthropic(api_key="YOUR API KEY")
-Anthropic.api_key = os.environ.get("ANTHROPIC_API_KEY")
-anthropic_client = anthropic.Anthropic()
+# Anthropic.api_key = os.environ.get("ANTHROPIC_API_KEY")
+# anthropic_client = anthropic.Anthropic()
 
 # MODIFICATION BY INIE
 # os.environ["OPENAI_API_KEY"] = "YOUR OPENAI API KEY"
@@ -27,10 +27,9 @@ openai_client = OpenAI()
 
 # Available OpenAI models
 ORCHESTRATOR_MODEL = "gpt-4o"
+
 # SUB_AGENT_MODEL = "gpt-4o"
-# SUB_AGENT_MODEL = "gpt-4o"
-# SUB_AGENT_MODEL = "ollama/deepseek-coder-v2"
-SUB_AGENT_MODEL = "gpt-4o"
+SUB_AGENT_MODEL = "ollama/deepseek-coder-v2"
 
 # Available Claude models for Anthropic API
 # REFINER_MODEL = "claude-3-opus-20240229"
@@ -231,7 +230,7 @@ def create_folder_structure(project_name, folder_structure, code_blocks):
         console.print(Panel(f"Created project folder: [bold]{project_name}[/bold]", title="[bold green]Project Folder[/bold green]", title_align="left", border_style="green"))
     except OSError as e:
         console.print(Panel(f"Error creating project folder: [bold]{project_name}[/bold]\nError: {e}", title="[bold red]Project Folder Creation Error[/bold red]", title_align="left", border_style="red"))
-        return
+    return
 
     # create_folders_and_files(project_name, folder_structure, code_blocks)
     # create_folder_structure(project_name, folder_structure, code_blocks)
@@ -257,7 +256,7 @@ def create_folders_and_files(current_path, structure, code_blocks):
                     console.print(Panel(f"Error creating file: [bold]{path}[/bold]\nError: {e}", title="[bold red]File Creation Error[/bold red]", title_align="left", border_style="red"))
             else:
                 console.print(Panel(f"Code content not found for file: [bold]{key}[/bold]", title="[bold yellow]Missing Code Content[/bold yellow]", title_align="left", border_style="yellow"))
-
+    return
     # create_folders_and_files(code_blocks)
 
 def read_file(file_path):
