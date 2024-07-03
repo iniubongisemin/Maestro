@@ -6,11 +6,13 @@ from datetime import datetime
 import json
 from litellm import completion
 from tavily import TavilyClient
+from dotenv import load_dotenv
+load_dotenv()
 
 # Set environment variables for API keys for the services you are using
-os.environ["OPENAI_API_KEY"] = "YOUR OPENAI API KEY"
-os.environ["ANTHROPIC_API_KEY"] = "YOUR ANTHROPIC API KEY"
-os.environ["GEMINI_API_KEY"] = "YOUR GEMINI API KEY"
+# os.environ["OPENAI_API_KEY"] = "YOUR OPENAI API KEY"
+# os.environ["ANTHROPIC_API_KEY"] = "YOUR ANTHROPIC API KEY"
+# os.environ["GEMINI_API_KEY"] = "YOUR GEMINI API KEY"
 
 # Define the models to be used for each stage
 ORCHESTRATOR_MODEL = "ollama/gemma2"

@@ -11,8 +11,8 @@ data = {
   "response_format": "json"
 }
 
-response = requests.post(url, headers=headers, files=file, data=data)
 file = {"file": open("/path/to/audio.mp3", "rb")}
+response = requests.post(url, headers=headers, files=file, data=data)
 print(response.json())
 
 # To upload a local file add the files parameter:
