@@ -279,3 +279,20 @@ with open(filename, 'w') as file:
     file.write(exchange_log)
 print(f"\nFull exchange log saved to {filename}")
 
+import requests
+
+def call_audio_to_text_api(audio_file_path):
+    api_url = 'http://your_django_server/api/audio-to-text/'
+    with open(audio_file_path, 'rb') as file:
+        response = requests.post(api_url, files={'file': file})
+    
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return {"error": "API call failed"}
+
+# Example usage
+audio_file_path = 'path_to_your_audio_file'
+text_output = call_audio_to_text_api(audio_file_path)
+print(text_output)
+
